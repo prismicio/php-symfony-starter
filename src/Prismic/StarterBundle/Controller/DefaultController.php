@@ -19,8 +19,8 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        $api = Api::get('https://lesbonneschoses.prismic.io/api');
-        $ref = $this->getRequest()->query->get('ref',  $api->master()->ref);
+        $api = $this->get('prismic')->getApiHome();
+        $ref = $this->getRequest()->query->get('ref', $api->master()->ref);
         $docs = $api->forms()->everything->ref($ref)->submit();
 
         return array(
