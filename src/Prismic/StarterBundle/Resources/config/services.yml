@@ -1,0 +1,5 @@
+parameters:
+#    prismic.example.class: Prismic\StarterBundle\Example
+
+services:
+#

@@ -1,0 +1,32 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+    
+    <form action="#TODO" method="GET">
+        <input type="text" name="q" value="">
+        <input type="submit" value="Search">
+    </form>
+  
+    <hr>
+  
+    <h2>
+        {% if docs and docs|length == 1 %}
+            One document found
+        {% elseif docs %}
+            {{ docs|length }} documents found
+        {% else %}
+            No documents found
+        {% endif %}
+    </h2>
+  
+    <ul>
+        {% for doc in docs %}
+            <li>
+                <a href="#TODO">
+                    {{ doc.slug   }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

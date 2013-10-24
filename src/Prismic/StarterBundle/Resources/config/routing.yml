@@ -1,0 +1,3 @@
+prismic:
+    resource: "@PrismicBundle/Controller"
+    type:     annotation
