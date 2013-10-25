@@ -16,7 +16,7 @@ parameters:
     prismic.api.clientSecret:     null
 ```
 
-Launch the application in your browser (the URL should be something like http://localhost/php-symfony2-starter/web/app_dev.php/):
+Launch the application in your browser (the URL should be something like http://localhost/php-symfony2-starter/web/app_dev.php/).
 
 ### Licence
 
