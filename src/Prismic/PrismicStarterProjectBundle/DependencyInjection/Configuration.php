@@ -1,6 +1,6 @@
 <?php
 
-namespace Prismic\StarterBundle\DependencyInjection;
+namespace Prismic\PrismicStarterProjectBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -18,15 +18,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('prismic');
-
-        $rootNode
-            ->children()
-            ->scalarNode('api')->end()
-            ->scalarNode('token')->end()
-            ->scalarNode('clientId')->end()
-            ->scalarNode('clientSecret')->end()
-            ->end();
+        $rootNode = $treeBuilder->root('prismicStarterProject');
 
         return $treeBuilder;
     }

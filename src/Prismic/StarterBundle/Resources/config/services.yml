@@ -1,8 +1,0 @@
-parameters:
-    prismic.api.endpoint:     "https://lesbonneschoses.prismic.io/api"
-    prismic.api.accessToken:  null
-
-services:
-    prismic:
-        class:      Prismic\StarterBundle\Helper\PrismicHelper
-        arguments:  [ %prismic.api.endpoint%, %prismic.api.accessToken% ]

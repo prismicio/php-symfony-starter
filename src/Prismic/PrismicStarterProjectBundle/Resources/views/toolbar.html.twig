@@ -1,0 +1,25 @@
+{% if ctx.hasPrivilegedAccess %}
+
+    <div id="toolbar">
+  
+        <form method="GET">
+            <label for="releaseSelector">See this website: </label>
+            <select id="releaseSelector" name="ref" onchange="this.form.submit()">
+                <option value="" {% if ctx.getRef == ctx.getMasterRef %} selected="selected" {% endif %}>As currently seen by guest visitors</option>
+                <optgroup label="Or preview the website in a future release:">
+                    {% for release in ctx.getApi.refs %}
+                        {% if release.ref != ctx.getMasterRef %}
+                            <option value="{{ release.ref }}" {% if ctx.getRef == release.ref %} selected="selected" {% endif %}>As {{ release.getLabel }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </optgroup>
+            </select>
+        </form>
+    
+        <form action="{{ path('signout') }}" method="POST">
+            <input type="submit" value="Disconnect">
+        </form>
+  
+    </div>
+
+{% endif %}

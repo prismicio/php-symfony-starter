@@ -1,13 +1,6 @@
-{% extends "::base.html.twig" %}
+{% extends "PrismicStarterProjectBundle::layout.html.twig" %}
 
-{% block body %}
-    
-    <form action="#TODO" method="GET">
-        <input type="text" name="q" value="">
-        <input type="submit" value="Search">
-    </form>
-  
-    <hr>
+{% block content %}
   
     <h2>
         {% if docs and docs|length == 1 %}
@@ -15,15 +8,15 @@
         {% elseif docs %}
             {{ docs|length }} documents found
         {% else %}
-            No documents found
+            No results
         {% endif %}
     </h2>
   
     <ul>
         {% for doc in docs %}
             <li>
-                <a href="#TODO">
-                    {{ doc.slug   }}
+                <a href="{{ ctx.resolveLink(doc) }}">
+                    {{ doc.slug }}
                 </a>
             </li>
         {% endfor %}

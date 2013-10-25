@@ -1,0 +1,35 @@
+{% extends "PrismicStarterProjectBundle::layout.html.twig" %}
+
+{% block content %}
+    
+    <form action="{{ path('search') }}" method="GET">
+        {% if ctx.maybeRef %}
+            <input type="hidden" name="ref" value="{{ ctx.ref }}">
+        {% endif %}
+        <input type="text" name="q" value="">
+        <input type="submit" value="Search">
+    </form>
+  
+    <hr>
+  
+    <h2>
+        {% if docs and docs|length == 1 %}
+            One document found
+        {% elseif docs %}
+            {{ docs|length }} documents found
+        {% else %}
+            No documents found
+        {% endif %}
+    </h2>
+  
+    <ul>
+        {% for doc in docs %}
+            <li>
+                <a href="{{ path('detail', {'id': doc.getId, 'slug': doc.slug, 'ref': ctx.maybeRef}) }}">
+                    {{ doc.slug }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
