@@ -1,9 +1,7 @@
 {% extends "PrismicStarterProjectBundle::layout.html.twig" %}
 
 {% block content %}
-    
-    {% autoescape false %}
-        {{ doc.asHtml(ctx.linkResolver) }}
-    {% endautoescape %}
+
+    {{ doc.asHtml(ctx.linkResolver)|raw }}
 
 {% endblock %}

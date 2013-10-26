@@ -2,17 +2,15 @@
 
 namespace Prismic\PrismicStarterProjectBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-
 use Prismic\Api;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class OAuthController extends Controller
 {
-
     /**
      * @Route("/signin", name="signin")
      */
@@ -23,10 +21,10 @@ class OAuthController extends Controller
         return $this->redirect(
             $prismic->getApiHome()->oauthInitiateEndpoint().'?'.http_build_query(
                 array(
-                    "client_id" => $prismic->getClientId(),
-                    "redirect_uri" => $this->generateUrl('auth_callback', array(), true),
-                    "scope" => "master+releases"
-                )
+                    'client_id'    => $prismic->getClientId(),
+                    'redirect_uri' => $this->generateUrl('auth_callback', array(), true),
+                    'scope'        => 'master+releases'
+                ), '', '&'
             )
         );
     }
@@ -34,16 +32,16 @@ class OAuthController extends Controller
     /**
      * @Route("/auth_callback", name="auth_callback")
      */ 
-    public function callbackAction() 
+    public function callbackAction(Request $request)
     {
         $prismic = $this->get('prismic.helper');
 
         $data = array(
-            "grant_type" => "authorization_code",
-            "code" => $this->getRequest()->query->get('code'),
-            "redirect_uri" => $this->generateUrl('auth_callback', array(), true),
-            "client_id" => $prismic->getClientId(),
-            "client_secret" => $prismic->getClientSecret()
+            'grant_type'    => 'authorization_code',
+            'code'          => $request->query->get('code'),
+            'redirect_uri'  => $this->generateUrl('auth_callback', array(), true),
+            'client_id'     => $prismic->getClientId(),
+            'client_secret' => $prismic->getClientSecret()
         );
 
         $conn = curl_init();
@@ -52,9 +50,9 @@ class OAuthController extends Controller
         curl_setopt($conn, CURLOPT_POSTFIELDS, $data);
         curl_setopt($conn, CURLOPT_RETURNTRANSFER, true);
 
-        $accessToken = json_decode(curl_exec($conn))->{'access_token'};
+        $accessToken = json_decode(curl_exec($conn), true);
 
-        $this->getRequest()->getSession()->set('ACCESS_TOKEN', $accessToken);
+        $request->getSession()->set('ACCESS_TOKEN', $accessToken['access_token']);
 
         return $this->redirect(
             $this->generateUrl('home')
@@ -64,13 +62,12 @@ class OAuthController extends Controller
     /**
      * @Route("/signout", name="signout")
      */ 
-    public function signout() 
+    public function signout(Request $request)
     {
-        $this->getRequest()->getSession()->clear();
+        $request->getSession()->invalidate();
 
         return $this->redirect(
             $this->generateUrl('home')
         );
     }
-
 }

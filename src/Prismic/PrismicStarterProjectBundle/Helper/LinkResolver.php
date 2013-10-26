@@ -2,14 +2,12 @@
 
 namespace Prismic\PrismicStarterProjectBundle\Helper;
 
-use Symfony\Component\Routing\Router;
-
 use Prismic\Api;
+use Symfony\Component\Routing\Router;
 
 class LinkResolver
 {
-
-    private $router; 
+    private $router;
 
     public function __construct(Router $router)
     {
@@ -20,5 +18,4 @@ class LinkResolver
     {
         return $this->router->generate('detail', array('id' => $link->getId(), 'slug' => $link->getSlug(), 'ref' => $maybeRef));
     }
-
 }

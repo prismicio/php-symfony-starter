@@ -2,28 +2,26 @@
 
 namespace Prismic\PrismicStarterProjectBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
+use Prismic\Api;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-
-use Prismic\Api;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
-
     /**
      * @Route("/", name="home")
      * @Template()
      */
     public function indexAction()
     {
-        $ctx = $this->get('prismic.context');
+        $ctx  = $this->get('prismic.context');
         $docs = $ctx->getApi()->forms()->everything->ref($ctx->getRef())->submit();
 
         return array(
-            'ctx' => $ctx,
+            'ctx'  => $ctx,
             'docs' => $docs
         );
     }
@@ -37,22 +35,20 @@ class DefaultController extends Controller
         $ctx = $this->get('prismic.context');
         $doc = $ctx->getDocument($id);
 
-        if($doc) {
-
-            if($doc->slug() == $slug) {
+        if ($doc) {
+            if ($slug === $doc->slug()) {
                 return array(
                     'ctx' => $ctx,
                     'doc' => $doc
                 );
             }
 
-            if(in_array($slug, $doc->getSlugs())) {
+            if ($doc->containsSlug($slug)) {
                 return $this->redirect(
                     $this->generateUrl('detail', array('id' => $id, 'slug' => $doc->slug(), 'ref' => $ctx->maybeRef()))
                 );
             }
-
-        } 
+        }
 
         throw $this->createNotFoundException('Document not found');
     }
@@ -61,18 +57,17 @@ class DefaultController extends Controller
      * @Route("/search", name="search")
      * @Template()
      */
-    public function searchAction() 
+    public function searchAction(Request $request)
     {
-        $q = $this->getRequest()->query->get('q');
-        $ctx = $this->get('prismic.context');
+        $q    = $request->query->get('q');
+        $ctx  = $this->get('prismic.context');
         $docs = $ctx->getApi()->forms()->everything->ref($ctx->getRef())->query(
             '[[:d = fulltext(document, "'.$q.'")]]'
         )->submit();
 
         return array(
-            'ctx' => $ctx,
+            'ctx'  => $ctx,
             'docs' => $docs
         );
     }
-
 }

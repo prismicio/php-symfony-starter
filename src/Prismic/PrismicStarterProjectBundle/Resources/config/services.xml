@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services
+                               http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="prismic.helper.class">Prismic\PrismicStarterProjectBundle\Helper\PrismicHelper</parameter>
+        <parameter key="prismic.link_resolver.class">Prismic\PrismicStarterProjectBundle\Helper\LinkResolver</parameter>
+        <parameter key="prismic.context.class">Prismic\PrismicStarterProjectBundle\Helper\PrismicContext</parameter>
+    </parameters>
+
+    <services>
+        <service id="prismic.helper" class="%prismic.helper.class%">
+            <argument />
+            <argument />
+            <argument />
+            <argument />
+        </service>
+
+        <service id="prismic.link_resolver" class="%prismic.link_resolver.class%">
+            <argument type="service" id="router" />
+        </service>
+
+        <service id="prismic.context" class="%prismic.context.class%">
+            <argument type="service" id="prismic.helper" />
+            <argument type="service" id="prismic.link_resolver" />
+            <call method="setRequest">
+                <argument type="service" id="request" on-invalid="null" strict="false" />
+            </call>
+        </service>
+    </services>
+</container>
