@@ -6,17 +6,9 @@ This is a blank [Symfony](http://symfony.com) project that will connect to any [
 
 ### How to start?
 
-Install the project into your Web server and edit the `src/Prismic/PrismicStarterProjectBundle/Resources/config/services.yml` file to make the application point to the correct repository:
+Install the project into your Web server, and you will be automatically asked about correct repository point and client details required to connect with Prismic.
 
-```
-parameters:
-    prismic.api.endpoint:         "https://lesbonneschoses.prismic.io/api"
-    prismic.api.accessToken:      null
-    prismic.api.clientId:         null
-    prismic.api.clientSecret:     null
-```
-
-Launch the application in your browser (the URL should be something like http://localhost/php-symfony2-starter/web/app_dev.php/).
+Launch the application in your browser (the URL should be something like: http://localhost/php-symfony2-starter/web/app_dev.php/).
 
 ### Licence
 
