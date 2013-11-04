@@ -3,9 +3,11 @@
 namespace Prismic\PrismicStarterProjectBundle\Helper;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Router;
 
 use Prismic\Api;
 use Prismic\Fragment\Link\DocumentLink;
+use Prismic\LinkResolver;
 
 class PrismicContext
 {
@@ -15,16 +17,16 @@ class PrismicContext
     private $masterRef;
     private $ref;
     private $maybeRef;
-    private $linkResolverRules;
+    private $router;
     
-    public function __construct(Request $request, PrismicHelper $prismic, LinkResolver $linkResolverRules)
+    public function __construct(Request $request, PrismicHelper $prismic, Router $router)
     {
         $this->accessToken = $request->getSession()->get('ACCESS_TOKEN');
         $this->api = $prismic->getApiHome($this->accessToken);
         $this->masterRef = $this->api->master()->getRef();
         $this->ref = $request->query->get('ref', $this->masterRef);
         $this->maybeRef = $this->ref == $this->masterRef ? null : $this->ref;
-        $this->linkResolverRules = $linkResolverRules;
+        $this->router = $router;
     }
 
     public function hasPrivilegedAccess()
@@ -54,16 +56,13 @@ class PrismicContext
 
     public function linkResolver() 
     {
-        return function($link) 
-        {
-            return $this->linkResolverRules->resolve($link, $this->api, $this->maybeRef);
-        };
+        return new LocalLinkResolver($this->router, $this->api, $this->maybeRef);
     }
 
     public function resolveLink($doc) 
     {
-        $link = new DocumentLink($doc->getId(), $doc->getType(), $doc->getTags(), $doc->slug(), false);
-        return $this->linkResolverRules->resolve($link, $this->api, $this->maybeRef);
+        $link = new DocumentLink($doc->getId(), $doc->getType(), $doc->getTags(), $doc->getSlug(), false);
+        return $this->linkResolver()->resolve($link);
     }
 
     public function getDocument($id) 

@@ -9,11 +9,7 @@ services:
         class:      Prismic\PrismicStarterProjectBundle\Helper\PrismicHelper
         arguments:  [ %prismic.api.endpoint%, %prismic.api.accessToken%, %prismic.api.clientId%, %prismic.api.clientSecret% ]
 
-    prismic.linkResolver:
-        class:      Prismic\PrismicStarterProjectBundle\Helper\LinkResolver
-        arguments:  [ @router ]
-
     prismic.context:
         class:      Prismic\PrismicStarterProjectBundle\Helper\PrismicContext
         scope:      request
-        arguments:  [ @request, @prismic.helper, @prismic.linkResolver ]
+        arguments:  [ @request, @prismic.helper, @router ]

@@ -39,7 +39,7 @@ class DefaultController extends Controller
 
         if($doc) {
 
-            if($doc->slug() == $slug) {
+            if($doc->getSlug() == $slug) {
                 return array(
                     'ctx' => $ctx,
                     'doc' => $doc
