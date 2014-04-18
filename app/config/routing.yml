@@ -1,4 +1,4 @@
 prismic:
-    resource: "@PrismicStarterProjectBundle/Resources/config/routing.yml"
+    resource: "@PrismicBundle/Resources/config/routing.xml"
     prefix:   /
 

@@ -1,22 +1,19 @@
 ## Starter for Symfony PHP projects
 
-This is a blank [Symfony](http://symfony.com) project that will connect to any [prismic.io](https://prismic.io) repository. It uses the prismic.io PHP developement kit, and provide a few helpers to integrate with the Symfony framework.
+This is a blank [Symfony](http://symfony.com) project that will connect to any [prismic.io](https://prismic.io) repository. It uses the prismic.io PHP development kit, and provide a few helpers to integrate with the Symfony framework.
 
 > This is a starter project, you are encouraged to use it to bootstrap your own project, or as inspiration to understand how you can integrate the prismic.io developement kit with a Symfony project.
 
 ### How to start?
 
-Install the project into your Web server and edit the `src/Prismic/PrismicStarterProjectBundle/Resources/config/services.yml` file to make the application point to the correct repository:
-
-```
-parameters:
-    prismic.api.endpoint:         "https://lesbonneschoses.prismic.io/api"
-    prismic.api.accessToken:      null
-    prismic.api.clientId:         null
-    prismic.api.clientSecret:     null
-```
+    git clone git://github.com/prismicio/php-symfony-starter.git
+    cd php-symfony-starter
+    sudo chmod -R 777 app/cache app/logs
+    curl -s http://getcomposer.org/installer | php --
+    php composer.phar install
 
 Launch the application in your browser (the URL should be something like http://localhost/php-symfony2-starter/web/app_dev.php/).
+
 
 ### Licence
 
