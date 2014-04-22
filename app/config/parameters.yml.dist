@@ -13,3 +13,8 @@ parameters:
 
     locale:            en
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    prismic_endpoint:         "https://lesbonneschoses.prismic.io/api"
+    prismic_access_token:     null
+    prismic_client_id:        null
+    prismic_client_secret:    null

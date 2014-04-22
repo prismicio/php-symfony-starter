@@ -64,3 +64,10 @@ swiftmailer:
     username:  %mailer_user%
     password:  %mailer_password%
     spool:     { type: memory }
+
+prismic:
+    api:
+      endpoint:       %prismic_endpoint%
+      access_token:   %prismic_access_token%
+      client_id:      %prismic_client_id%
+      client_secret:  %prismic_client_secret%
