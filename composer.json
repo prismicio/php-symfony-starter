@@ -19,7 +19,8 @@
         "sensio/framework-extra-bundle": "2.3.*",
         "sensio/generator-bundle": "2.3.*",
         "incenteev/composer-parameter-handler": "~2.0",
-        "prismic/prismic-bundle": "dev-master"
+        "prismic/prismic-bundle": "dev-master",
+        "prismic/php-sdk": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [
