@@ -14,6 +14,9 @@ This is a blank [Symfony](http://symfony.com) project that will connect to any [
 
 Launch the application in your browser (the URL should be something like http://localhost/php-symfony2-starter/web/app_dev.php/).
 
+### Reporting an issue
+
+Note that this starter project is almost entirely based on [the official prismic.io SymfonyBundle](https://github.com/prismicio/SymfonyBundle); please report any issue over there.
 
 ### Licence
 
