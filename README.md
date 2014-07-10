@@ -6,13 +6,12 @@ This is a blank [Symfony](http://symfony.com) project that will connect to any [
 
 ### How to start?
 
-    git clone git://github.com/prismicio/php-symfony-starter.git
+    curl -s http://getcomposer.org/installer | php --
+    php composer.phar create-project prismic/symfony-starter php-symfony-starter
     cd php-symfony-starter
     sudo chmod -R 777 app/cache app/logs
-    curl -s http://getcomposer.org/installer | php --
-    php composer.phar install
 
-Launch the application in your browser (the URL should be something like http://localhost/php-symfony2-starter/web/app_dev.php/).
+Launch the application in your browser (the URL should be something like http://localhost/php-symfony-starter/web/app_dev.php/).
 
 ### Reporting an issue
 
