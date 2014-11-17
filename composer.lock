@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "24d45f8e9d53b6eb116eb073e1858552",
+    "hash": "e841ef96e1021e33aa6c4167e1626bcc",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -610,16 +610,16 @@
         },
         {
             "name": "guzzle/guzzle",
-            "version": "v3.9.1",
+            "version": "v3.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle3.git",
-                "reference": "92d9934f2fca1da15178c91239576ae26e505e60"
+                "reference": "54991459675c1a2924122afbb0e5609ade581155"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle3/zipball/92d9934f2fca1da15178c91239576ae26e505e60",
-                "reference": "92d9934f2fca1da15178c91239576ae26e505e60",
+                "url": "https://api.github.com/repos/guzzle/guzzle3/zipball/54991459675c1a2924122afbb0e5609ade581155",
+                "reference": "54991459675c1a2924122afbb0e5609ade581155",
                 "shasum": ""
             },
             "require": {
@@ -663,7 +663,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.8-dev"
+                    "dev-master": "3.9-dev"
                 }
             },
             "autoload": {
@@ -698,7 +698,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2014-05-07 17:04:22"
+            "time": "2014-08-11 04:32:36"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -947,25 +947,26 @@
         },
         {
             "name": "prismic/php-sdk",
-            "version": "1.0.11",
+            "version": "1.0.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/prismicio/php-kit.git",
-                "reference": "11814e6feb33b7128443a33663540e4826e0ff8c"
+                "reference": "3e020d546281b7f40298de6fd01fb95a4f8c3ad0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/prismicio/php-kit/zipball/11814e6feb33b7128443a33663540e4826e0ff8c",
-                "reference": "11814e6feb33b7128443a33663540e4826e0ff8c",
+                "url": "https://api.github.com/repos/prismicio/php-kit/zipball/3e020d546281b7f40298de6fd01fb95a4f8c3ad0",
+                "reference": "3e020d546281b7f40298de6fd01fb95a4f8c3ad0",
                 "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
                 "ext-json": "*",
-                "guzzle/guzzle": "3.9.1",
+                "guzzle/guzzle": ">=3.9.1",
                 "php": ">=5.3.3"
             },
             "require-dev": {
+                "codeclimate/php-test-reporter": "dev-master",
                 "phpdocumentor/phpdocumentor": "2.*",
                 "phpunit/phpunit": "~4.1"
             },
@@ -985,7 +986,7 @@
                 "Apache 2 license"
             ],
             "description": "PHP development kit for prismic.io",
-            "time": "2014-10-22 15:47:38"
+            "time": "2014-11-17 15:13:48"
         },
         {
             "name": "prismic/prismic-bundle",
@@ -993,17 +994,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/prismicio/SymfonyBundle.git",
-                "reference": "646b2925d08c10307f8ff6bcb59fa1f2767fe36e"
+                "reference": "e6049f549c216714fd5bacf260a734a954fb4e7d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/prismicio/SymfonyBundle/zipball/646b2925d08c10307f8ff6bcb59fa1f2767fe36e",
-                "reference": "646b2925d08c10307f8ff6bcb59fa1f2767fe36e",
+                "url": "https://api.github.com/repos/prismicio/SymfonyBundle/zipball/e6049f549c216714fd5bacf260a734a954fb4e7d",
+                "reference": "e6049f549c216714fd5bacf260a734a954fb4e7d",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
-                "prismic/php-sdk": "1.0.11",
+                "prismic/php-sdk": "1.0.13",
                 "symfony/framework-bundle": "~2.4"
             },
             "type": "symfony-bundle",
@@ -1029,7 +1030,7 @@
                 "cms",
                 "persistence"
             ],
-            "time": "2014-11-14 14:34:58"
+            "time": "2014-11-17 15:15:51"
         },
         {
             "name": "psr/log",
