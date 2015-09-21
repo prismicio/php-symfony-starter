@@ -5,6 +5,13 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script>
+            window.prismic = {
+                endpoint: '{{ ctx.getHelper.getApiEndpoint }}'
+              };
+        </script>
+        <script src="//static.cdn.prismic.io/prismic.js"></script>
     </head>
     <body>
         {% block body %}{% endblock %}

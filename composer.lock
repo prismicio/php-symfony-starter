@@ -985,17 +985,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/prismicio/SymfonyBundle.git",
-                "reference": "72093d955011782f67fc0b3c45a8697910fdf378"
+                "reference": "318e2a689ec64d2de5087576ea518cf2645a88c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/prismicio/SymfonyBundle/zipball/72093d955011782f67fc0b3c45a8697910fdf378",
-                "reference": "72093d955011782f67fc0b3c45a8697910fdf378",
+                "url": "https://api.github.com/repos/prismicio/SymfonyBundle/zipball/318e2a689ec64d2de5087576ea518cf2645a88c7",
+                "reference": "318e2a689ec64d2de5087576ea518cf2645a88c7",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
-                "prismic/php-sdk": "~1.5.0",
+                "prismic/php-sdk": "~1.5.12",
                 "symfony/framework-bundle": "~2.4"
             },
             "type": "symfony-bundle",
@@ -1021,7 +1021,7 @@
                 "cms",
                 "persistence"
             ],
-            "time": "2015-09-07 21:39:26"
+            "time": "2015-09-21 16:00:52"
         },
         {
             "name": "psr/http-message",
