@@ -1,4 +1,10 @@
-## Starter for Symfony PHP projects
+# Starter for Symfony PHP projects
+
+## :warning: UNMAINTAINED PROJECT :warning:
+
+This project is now unmaintained and becomes more and more outdated comparing to the evolution of the Symfony framework. We invite you to read our [PHP documentation](https://prismic.io/docs/php/getting-started/with-the-php-starter-kit) and integrate yourself our [PHP SDK](https://packagist.org/packages/prismic/php-sdk) in your Symfony project.
+
+### Info
 
 This is a blank [Symfony](http://symfony.com) project that will connect to any [prismic.io](https://prismic.io) repository. It uses the prismic.io PHP development kit, and provide a few helpers to integrate with the Symfony framework.
 
